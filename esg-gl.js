@@ -1347,7 +1347,7 @@ async function initScene(root, withGlobe, palette) {
   document.addEventListener('visibilitychange', setRunning);
 }
 
-initScene(document.querySelector('.esg-hero'), true, GREEN).catch(err => console.warn('ESG hero globe disabled:', err));
+initScene(document.querySelector('.esg-hero-marker').parentElement, true, GREEN).catch(err => console.warn('ESG hero globe disabled:', err));
 // Section 03, the numbers panel and the CTA each get their own renderer, created one screen before they arrive so their shader compile stays out of page load
 const lazyScene = (root, palette) => root && new IntersectionObserver(([e], io) => {
   if (!e.isIntersecting) return;
