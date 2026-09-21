@@ -8,6 +8,9 @@ if (!REDUCED_MOTION) {
   gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
   gsap.ticker.lagSmoothing(0);
 }
+/* Section 06 — Impact in Numbers: the site's Flowbase count-up (loaded site-wide, starts on window load) reads fb-count attributes.
+   They are derived from the figure's own text, so editing a number in Webflow is all it takes. */
+document.querySelectorAll('.esg-num-figure').forEach(function (el) { el.setAttribute('fb-count', ''); el.setAttribute('fb-count-target', el.textContent.trim()); });
 /* Section 05 — logo tiles on scroll (Febin). Their reveal is CSS :hover only; here, while the list is on screen, the row nearest the screen centre gets .is-active (same styles),
    so one logo shows from the moment the list enters and it changes as you scroll. Hovering takes over in CSS. Measured from live rects, so the rows' fade-up offset can't skew it.
    Hover-capable desktops only: elsewhere the tiles sit inline and stay open. State only, so it also runs under reduced motion (the CSS drops the transition). */
